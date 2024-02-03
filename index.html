@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <link rel="import" href="header.html">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport"  content="width=device-width,initial-scale=1">
+    <script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="js/bootstrap.min.js" rel="stylesheet">
+
+
+        <style>
+
+/*confetti*/
+            
+            
+/*Scroll Bar*/
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+    
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #479761; 
+    
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:#479761; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: mediumseagreen;
+}
+            
+            /*IMAGE SHAKING*/
+            #shakeimg:hover{
+                cursor: pointer;
+                animation: shake 0.5s;
+                animation-iteration-count: infinite;
+            }
+            @keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+            
+            .footer {
+  position: fixed;
+                font-size: 20px;
+                border-radius: 10px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #479761;
+  color: white;
+  text-align: center;
+}
+            .column{
+                padding-left: 60px;
+                padding-top: 40px;
+               
+            
+            }
+            #cdtitle{
+                color: green;
+            }
+            #tecgimg{
+                
+            }
+/*SLIDING IMAGES*/
+.mySlides1, .mySlides2 {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a grey background color */
+.prev:hover, .next:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+            
+        /*TabHover*/
+            
+.tab {
+  float: left;
+  border: 2px solid #479761;
+    
+    box-shadow: 0 4px 8px 0 #479761;
+  background-color: #479761;
+  width: 20%;
+  height: 700px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: #479761;
+  color: white;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+    color: #479761;
+    transform: scale(1.1);
+}
+
+            #projectheadings{
+                color: #479761;
+                text-align: center;
+            }
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: white;
+    color: #479761
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+    background-color: white;
+  padding: 0px 12px;
+  box-shadow: 0 8px 8px 0 #479761;
+  width: 80%;
+  border-left: none;
+  height: 700px;
+  display: none;
+}
+
+/* Clear floats after the tab */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+            
+            
+/* stat*/
+#statcontainer{box-sizing: border-box}
+
+#statcontainer {
+  width: 100%;
+  background-color: whitesmoke;
+}
+
+.skills {
+  text-align: right;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: white;
+}
+
+.sslc {width: 72%; background-color: #479761;}
+.hsc {width: 58%; background-color: #479761;}
+.bsc {width: 78%; background-color: #479761;}
+.mca {width: 85%; background-color: #479761;}
+            
+            
+/*vertical box*/
+.flip-box {
+  background-color: transparent;
+  width: 700px;
+  height: 350px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+    box-shadow: 0 4px 8px 0 #479761;
+}
+
+.flip-box-inner {
+    cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+    cursor: pointer;
+}
+
+.flip-box-front {
+  background-color: white;
+  color: black;
+}
+
+.flip-box-back {
+  background-color: white;
+  color: green;
+  transform: rotateX(180deg);
+}
+            
+            /*FLIPCARD*/
+            .flip-card {
+  background-color: transparent;
+  width: 240px;
+  height: 320px;
+  perspective: 1000px;
+}
+
+            #tecgimg{
+                cursor: pointer;
+            }
+            
+#per
+            {
+                font-size: 60px;
+                word-spacing: inherit;
+                transition: transform .2s;
+                cursor: pointer;
+                caret-color: Red;
+                
+            }
+            #per:hover{
+                transform: scale(1.6);
+                color:antiquewhite;
+                 text-shadow: 0 0 3px green;
+            }
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s ;
+  transform-style: preserve-3d;
+  box-shadow: 0px 4px 5px 0 #479761;
+    cursor: pointer;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+    cursor: pointer;
+  background-color: white;
+    box-shadow: 0 4px 8px 0 #479761;
+  color: black;
+}
+
+.flip-card-back {
+  background-color:#479761;
+  color: white;
+  transform: rotateY(180deg);
+}
+            #projectdescription{
+                
+                text-align: justify;
+                padding-left: 10px;
+            }
+            #insname{
+                color: grey;
+                
+            }
+            
+            .card
+            {
+                background-color: #479761;
+                box-shadow: 0 4px 8px 0 #479761;
+                transition: 0.3s;
+            }
+            .card:hover{
+                 box-shadow: 0 8px 16px 0 #479761;
+            }
+            .card-title{
+                 color: #f0ebf4;
+            }
+            .card-text{
+                color: white;
+                text-align: justify;
+                padding-left: 30px;
+            }
+            .jumbotron{
+                background-color:#479761;
+                color: #f0ebf4;
+                
+            }
+            #myname{
+                transition: transform .2s;
+                cursor: pointer;
+                padding: 20px;
+                text-align: left;
+                padding-bottom: 60px;
+                
+            }
+            #address{
+                padding: 20px;
+                padding-bottom: 10px;
+            }
+            #myname:hover
+            {
+                 -ms-transformation:scale(1.2);
+                -webkit-transform:scale(1.2);
+                transform: scale(1.2);
+                color: seashell;
+                
+            }
+            #myimg{
+                border-radius: 60px;
+                height: 140px;
+                width: 320px;
+                transition: transform .2s;
+                cursor: pointer;
+                border-color: black;
+               
+                
+                
+            }
+            #myimg:hover
+            {
+                transform: scale(2.0);
+            }
+            #email{
+                text-align: right;
+            }
+            body{
+                margin: 0;
+            }
+        </style>
+</head>
+    <body>
+        
+
+    <div class="container-fluid">
+       <div class="jumbotron ">
+           <div class="row">
+               <div class="col">
+  <h1 id="myname">VIJAYA SELVAM C</h1>
+           <p id="address">90-H-13 Municipal Office Road<br>Virudhunagar-626001</p>
+                </div>
+                <div class="col"><center>
+                <img id="myimg" src="img/mypic_001.png" width="400px"  class="img-circle"></center>
+                </div>
+               <div class="col">
+               <p id="email" style="padding-top: 100px;"><br><br><img src="img/mail_004.png" height="30" width="40">
+                   vijayaselvamceemon@gmail.com<br>
+                   
+                   </p>
+               </div>
+           </div>
+</div>
+        <div class="card">
+    <h5 class="card-title">OBJECTIVES</h5>
+    <h6 class="card-text">To associate with an organization that provides an opportunity to show my techno-proficient skills, to improve my knowledge with the latest trends and to be a part of the team that works dynamically towards the growth of the organization.</h6><br>
+</div>
+        <br>
+
+   
+           
+</div>
+
+  <div class="container-fluid">      
+<div class="row">
+    <div class="column">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+        <br>
+      <img src="img/kvs.jpg" alt="Avatar" style="width:200px;height:200px;">
+        <br><br>
+        <h2 id="insname">SSLC</h2>
+    </div>
+    <div class="flip-card-back">
+      <h4>KVS Higher Secondary School,<br>Virudhunagar </h4> 
+      
+        <p>2010-2011</p>
+      <h1 id="per">72%</h1><br>
+        <p>STATE BOARD</p>
+    </div>
+  </div>
+</div>                        
+</div>
+    
+    <div class="column">
+       <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+       <br>
+      <img src="img/kvs.jpg" alt="Avatar" style="width:200px;height:200px;">
+    <br><br>
+        <h2 id="insname">HSC</h2>
+      </div>
+   <div class="flip-card-back">
+      <h4>KVS Higher Secondary School,<br>Virudhunagar </h4> 
+      
+        <p>2011-2013</p>
+      <h1 id="per">58%</h1><br>
+        <p>STATE BOARD</p>
+    </div>
+  </div>
+</div>                        
+</div>
+    
+    <div class="column">
+       <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+        <br>
+      <img src="img/vhnsn.jfif" alt="Avatar" style="width:200px;height:200px;">
+        <br><br>
+        <h2 id="insname">UG</h2>
+    </div>
+    <div class="flip-card-back">
+      <h4>VHNSNC Arts and Science College,<br>Virudhunagar </h4> 
+      
+        <p>2013-2016</p>
+      <h1 id="per">78%</h1><br>
+        <h6>Bsc Information Technology</h6>
+        <p>AUTONOMOUS</p>
+    </div>
+  </div>
+</div>                        
+</div>
+    
+    <div class="column">
+       <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+        <br>
+      <img src="img/icat.png" alt="Avatar" style="width:200px;height:200px;">
+        <br><br>
+        <h2 id="insname">PG-DIPLOMA</h2>
+    </div>
+    <div class="flip-card-back">
+      <h4>ICAT Design and Media College,<br>Chennai</h4>  
+      
+        <p>2016-2017</p>
+      <h1 id="per">..%</h1><br>
+        <h6>PG Diploma in Visual Effects</h6>
+        <p>AUTONOMOUS</p>
+    </div>
+  </div>
+</div>                        
+</div>
+    
+    <div class="column">
+       <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+        <br>
+      <img src="img/mepco_001.jpg" alt="Avatar" style="width:200px;height:200px;">
+        <br><br>
+        <h2 id="insname">PG</h2>
+    </div>
+    <div class="flip-card-back">
+      <h4>MEPCO Schlenk Engineering College,<br>Sivakasi</h4> 
+      
+        <p>2018-2020</p>
+      <h1 id="per">85%</h1><br>
+    <h6>Master of Computer Application</h6>
+        <p>AUTONOMOUS</p>
+    </div>
+  </div>
+</div>                        
+</div>  
+    </div>
+<br><br>
+      
+<div class="row">
+<div class="col"></div>
+    <div class="col"><center>
+<div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+     
+        <img src="img/work_007.gif" alt="No" width="700" height="350">
+    </div>
+    <div class="flip-box-back">
+      <h2 style="color: grey">MARK STATISTICS</h2>
+        <p>SSLC</p>
+      <div class="container" id="statcontainer">
+  <div class="skills sslc" >72%</div>
+</div>
+
+<p>HSC</p>
+<div class="container" id="statcontainer">
+  <div class="skills hsc">58%</div>
+</div>
+
+<p>Bsc Information Technology</p>
+<div class="container" id="statcontainer">
+  <div class="skills bsc">78%</div>
+</div>
+
+<p>MCA</p>
+<div class="container" id="statcontainer">
+  <div class="skills mca">85%</div>
+</div>
+    </div>
+  </div> 
+</div></center></div>
+      <div class="col">
+    </div>
+      </div><br><br>
+      <div class="card" style="background-color: white">
+  <h5 class="card-header" style="color: white;background-color: #479761">Technical Qualifications</h5>
+  <div class="card-body" style="background-color:white"><center>
+    <h5 class="card-title" id="cdtitle" style="background-color: beige;">Languages</h5>
+    <img id="tecgimg" title="python" src="img/python.png" height="100" width="100">   
+    <img id="tecgimg" title="C" src="img/c.png" height="140" width="120"><br><br>
+    <h5 class="card-title" id="cdtitle" style="background-color: beige;">Scripting Languages</h5>
+      <img id="tecgimg" title="PHP" src="img/php.png" height="100" width="100"><br><br>
+    <h5 class="card-title" id="cdtitle" style="background-color: beige;">Markup Language Languages</h5>
+      <img id="tecgimg" title="HTML5" src="img/html5.png" height="100" width="100"><br><br>
+     <h5 class="card-title" id="cdtitle" style="background-color: beige;">GUI</h5>
+      <img id="tecgimg" title="python-TKinter" src="img/tkinter.png" height="100" width="100"><br><br>
+     <h5 class="card-title" id="cdtitle" style="background-color: beige;">Database</h5>
+      <img id="tecgimg" title="Mysql" src="img/mysql.png" height="100" width="100">
+      <img id="tecgimg" title="MongoDB" src="img/mongodb.png" height="100" width="100">
+ </center>
+</div>  </div><br><center>
+<div class="card" style="background-color: white; height: 320px; width: 300px;">
+    
+    <h5 class="car-header" style="background-color: #479761;color: white; ">
+                WORK-EXPERIENCE
+    </h5>
+    <div class="card-body" style="background-color:whitesmoke;box-shadow: 0 4px 8px 0 #479761;cursor: pointer;">
+    <h4 style="color: green">PHANTOM-FX</h4>
+    <img src="img/mypic.jpg" height="150" width="150" style="border-radius: 20px">
+    <h2>ROTO-ARTIST</h2>
+    <h6>8 Months-Experience<br>2017-2018</h6>
+    </div></div>
+      </center><br><br>
+      <center>
+   
+    </center>
+</div>
+        
+<div class="container-fluid">
+    <center>
+         <div class="card" style="background-color: white; ">
+    
+    <h5 class="car-header" style="background-color: #479761;color: white;text-align: left ">
+                ACTIVITIES
+    </h5>
+    <div class="card-body" style="background-color:whitesmoke;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);">
+    <h4 style="color: green">EXTRA CURRICULAR ACTIVITIES</h4>
+    <div class="row">
+        <div class="col">
+    <div class="container left"><img src="img/ryla.png" height="100px" width="100px">
+        <div class="content" style="background-color: whitesmoke">
+        <p style="text-align:left;"><img src="img/bullet.png" height="40" width="40">Participated Three days Residential Soft Skill Development program<strong>‘RYLA-2014’</strong> conducted by Rotary Club of Sivakasi</p>
+        </div>
+        </div>
+    </div>
+        
+         <div class="col">
+    <div class="container right"><img src="img/nss.png" height="100px" width="100px">
+        <div class="content" style="background-color:whitesmoke">
+        <p style="text-align: left;"><img src="img/bullet.png" height="40" width="40">Participated  in State Level seminar on<strong>“ENVIRONMENTAL PROTECTION” </strong> conducted by NSS. </p>
+        </div>
+        </div>
+    </div>
+    </div>
+    
+         <div class="row">
+        <div class="col">
+    <div class="container left"><img src="img/gyanmitra_003.png" height="100px" width="100px">
+        <div class="content" style="background-color: whitesmoke">
+        <p style="text-align:left;"><img src="img/bullet.png" height="40" width="40">Organized an event TREASURE HUNT in<strong>“GYANMITRA-2k19”</strong>  conducted by MEPCO  SCHLENK ENGINEERING COLLEGE, SIVAKASI.</p>
+        </div>
+        </div>
+    </div>
+        
+         <div class="col">
+    <div class="container right"><img src="img/mepco_004.png" height="100px" width="100px">
+        <div class="content" style="background-color:whitesmoke">
+        <p style="text-align: left;"><img src="img/bullet.png" height="40" width="40">Participated in  Club activities conducted by<strong> Readers Club</strong> </p>
+        </div>
+        </div>
+    </div>
+    </div><br>
+        
+        
+        <h4 style="color: green">CO CURRICULAR ACTIVITIES</h4><br>
+ <div class="row">
+        <div class="col">
+    <div class="container left"><img src="img/nptel.png" height="100px" width="100px">
+        <div class="content" style="background-color: whitesmoke">
+        <p style="text-align:left;"><img src="img/bullet.png" height="40" width="40">Completed the NPTEL Course titled <strong>“Programming in C”</strong>  which is conducted by IIT karagpur</p>
+        </div>
+        </div>
+    </div>
+        
+         <div class="col">
+    <div class="container right"><img src="img/gets.png" height="100px" width="250px">
+        <div class="content" style="background-color:whitesmoke">
+        <p style="text-align: left;"><img src="img/bullet.png" height="40" width="40">Completed the Certification Course titled <strong>”GETS”</strong> from QAI-(UK)</p>
+        </div>
+        </div>
+    </div>
+    </div>
+        <br>
+        
+<div class="row">
+        <div class="col">
+    <div class="container left"><img src="img/technothirst_001.png" height="100px" width="100px">
+        <div class="content" style="background-color: whitesmoke">
+        <p style="text-align:left;"><img src="img/bullet.png" height="40" width="40">Participated in National Level Symposium <strong>“TECHNOTHIRST 18-19”</strong> conducted by A.V.C College of Engineering,Mayiladuthurai.</p>
+        </div>
+        </div>
+    </div>
+        
+         <div class="col" >
+    <div class="container right"><img src="img/ss.png" height="100px" width="100px">
+        <div class="content" style="background-color:whitesmoke">
+        <p style="text-align: left;"><img src="img/bullet.png" height="40" width="40">Participated in Inter College Meet<strong> “ZESTA-15”</strong> conducted by S.S Duraisamy College,Kovilpatti.</p>
+        </div>
+        </div>
+    </div>
+    </div><br>
+        
+    <div class="row">
+        <div class="col">
+    <div class="container left"><img src="img/udemy.png" height="100px" width="200px">
+        <div class="content" style="background-color: whitesmoke">
+        <p style="text-align:left;"><img src="img/bullet.png" height="40" width="40">Doing online <strong> GUI Tkinter Application Development</strong> course on UDEMY<img src="img/new.jpg" height="40px" width="60px"></p>
+        </div>
+        </div>
+        </div>
+        
+        <div class="col">
+    <div class="container right"><img src="img/computer_components.png" height="100px" width="100px">
+        <div class="content" style="background-color:whitesmoke">
+        <p style="text-align: left;"><img src="img/bullet.png" height="40" width="40">Completed the Certification Course on <strong>”Computer Hardware”</strong>Conducted by VHNSN Arts and Science College</p>
+        </div>
+        </div>
+    </div>
+        
+        </div>
+
+    
+    </div></div>
+        </center>
+        </div>
+        <br>
+        
+<div class="container-fluid">
+    <h5 class="card-header" style="background-color: #479761;color: white;text-align: left ">
+                STRENGTHS
+    </h5><br>
+        <div class="row">
+    <div class="col">
+        <div id="shakeimg" class="card" style="height: 200px;width: 250px;background-color: white;">
+          <center><h5 style="color: dimgray">Fast-Learner</h5>
+            <img src="img/fastlearner.gif" height="150" width="220" style="rad"></center>
+        </div>
+    </div>
+            <div class="col">
+        <div id="shakeimg" class="card" style="height: 200px;width: 250px;background-color: white;">
+          <center><h5 style="color: dimgray">Punctual</h5>
+            <img src="img/timekeeping.gif" height="150" width="248" style="rad"></center>
+        </div>
+    </div>
+            <div class="col">
+        <div id="shakeimg" class="card" style="height: 200px;width: 250px;background-color: white;">
+          <center><h5 style="color: dimgray">Team Work</h5>
+            <img src="img/teamwork_002.gif" height="150" width="248" style="rad"></center>
+        </div>
+    </div>
+            <div class="col">
+        <div id="shakeimg" class="card" style="height: 200px;width: 250px;background-color: white;">
+          <center><h5 style="color: dimgray">Situation Handling</h5>
+            <img src="img/teamwork_004.gif" height="150" width="248" style="rad"></center>
+        </div>
+    </div>
+            
+            <div class="col">
+        <div id="shakeimg" class="card" style="height: 200px;width: 250px;background-color: white;">
+          <center><h5 style="color: dimgray">Hard and Smart worker</h5>
+            <img src="img/smart_001.gif" height="150" width="248" style="rad"></center>
+        </div>
+    </div>  
+    </div>
+</div>
+        <br>
+<div class="container-fluid">
+    <h5 class="card-header" style="background-color: #479761;color: white;text-align: left ">
+                Projects
+    </h5>
+    
+
+
+
+<div class="tab">
+  <button class="tablinks" onmouseover="openProject(event, 'Fireworks_Analysis')">Research In Fireworks Industry</button>
+  <button class="tablinks" onmouseover="openProject(event, 'Student_Mark_Sheet')">Student Marksheet In Python</button>
+  <button class="tablinks" onmouseover="openProject(event, 'Timer')">Time Remainder</button>
+  <button class="tablinks" onmouseover="openProject(event, 'Refresher')">Time Refresher</button>
+</div>
+
+<div id="Fireworks_Analysis" class="tabcontent">
+  <h3 id="projectheadings" >Research In Fireworks Industry</h3>
+  <p id="projectdescription">Collecting real time details from employee and employer’s of fireworks industry and store it in MYSQL Database.Retrieve data by queries and download data as excel sheet and view as in pie charts.This is the Research Project.</p>
+    <h5 style="color: cadetblue">Technology Used</h5>
+    <li>
+        PHP
+    </li>
+    <li>
+        HTML5
+    </li>
+     <li>
+        CSS
+    </li>
+     <li>
+        JAVASCRIPT
+    </li>
+    <li>
+        BOOTSTRAP
+    </li>
+    <h5 style="color: cadetblue">Server</h5>
+    <li>
+        XAMPP SERVER
+    </li>
+</div>
+
+<div id="Student_Mark_Sheet" class="tabcontent">
+  <h3 id="projectheadings">Simple Student Marksheet Creation</h3>
+  <p id="projectdescription">Admin can insert students marks in <strong>PymongoDB</strong>.It calculates total marks and retrieve from database by name and all students marks.
+Can edit and alter students marks.
+</p> 
+<p style="color: green">Project Screenshots</p>
+<div class="slideshow-container">
+  <div class="mySlides1">
+    <img src="img/project_002/m1.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides1">
+    <img src="img/project_002/m2.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides1">
+    <img src="img/project_002/m3.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides1">
+    <img src="img/project_002/m4.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides1">
+    <img src="img/project_002/m5.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides1">
+    <img src="img/project_002/m6.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides1">
+    <img src="img/project_002/m7.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides1">
+    <img src="img/project_002/m8.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides1">
+    <img src="img/project_002/m9.png" style="width:100%;height: 400px ">
+  </div>
+  
+
+  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+</div>
+
+<h5 style="color: cadetblue">Technology Used</h5>
+    <li>
+        Anaconda Spyder
+    </li>
+    <li>
+        Python Tkinter GUI
+    </li>
+    <li>
+        PymongoDB
+    </li>
+</div>
+
+<div id="Timer" class="tabcontent">
+  <h3 id="projectheadings">Time Remainder</h3>
+  <p id="projectdescription">This is a Application based simple clock which user can set time limit.Timer will run in reverse from user limit to 0.It will Work as a remainder</p>
+<p style="color: green">Project Screenshots</p>
+<div class="slideshow-container">
+  <div class="mySlides2">
+    <img src="img/project_003/t1.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides2">
+    <img src="img/project_003/t2.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides2">
+    <img src="img/project_003/t3.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides2">
+    <img src="img/project_003/t4.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides2">
+    <img src="img/project_003/t5.png" style="width:100%;height: 400px ">
+  </div>
+    
+
+  <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+</div>
+    <h5 style="color: cadetblue">Technology Used</h5>
+    <li>
+        Anaconda Spyder
+    </li>
+    <li>
+        Python Tkinter GUI
+    </li>
+</div>
+
+<div id="Refresher" class="tabcontent">
+  <h3 id="projectheadings">Time Refresher</h3>
+  <p id="projectdescription">This is the Simple Webpage based Time Refresher.User can set target time to remaind.Here programmer implementing 20/20 Eye rule to remaind users to blink their eyes every 20 Minutes</p>
+    <p style="color: green">Project Screenshots</p>
+    <div class="slideshow-container">
+  <div class="mySlides3">
+    <img src="img/Project_004/b1.png" style="width:100%;height: 400px ">
+  </div>
+    <div class="mySlides3">
+    <img src="img/Project_004/b2.png" style="width:100%;height: 400px ">
+  </div>
+        <div class="mySlides3">
+    <img src="img/Project_004/b3.png" style="width:100%;height: 400px ">
+  </div>
+        <div class="mySlides3">
+    <img src="img/Project_004/b4.png" style="width:100%;height: 400px ">
+  </div>
+        <div class="mySlides3">
+    <img src="img/Project_004/b5.png" style="width:100%;height: 400px ">
+  </div>
+        <div class="mySlides3">
+    <img src="img/Project_004/b6.png" style="width:100%;height: 400px ">
+  </div>
+    
+
+  <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+</div>
+    <h5 style="color: cadetblue">Technology Used</h5>
+    <li>
+       HTML5
+    </li>
+    <li>
+        BOOTSTRAP 4
+    </li>
+     <li>
+        JAVASCRIPT
+    </li>
+    <li>
+        CSS
+    </li>
+</div>
+
+<div class="clearfix"></div>
+    
+
+    
+<script>
+var slideIndex = [1,1,1];
+var slideId = ["mySlides1", "mySlides2","mySlides3"];
+showSlides(1, 0);
+showSlides(1, 1);
+showSlides(1, 2);
+
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+  var i;
+  var x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}    
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex[no]-1].style.display = "block";  
+}
+</script>
+    
+    
+<script>
+function openProject(evt, projectName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(projectName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+</div>
+        <br>
+<div class="container-fluid">
+    
+    <h5 class="card-header" style="background-color: #479761;color: white;text-align: left ">
+                Hobbies
+    </h5><br>
+   
+       
+    
+    
+      
+    <div class="row">
+         <div class="col"><center>
+             <div class="card" style="background-color: white;height: 300px;width: 350px;background-blend-mode:color-burn;cursor: pointer;">
+            <h5 style="color: gray;text-align: center;">Books Reading</h5>
+                 <img src="img/books_001.gif" height="250" width="250"></div></center>
+        </div>
+           <div class="col"><center>
+                <div class="card" style="padding-right:10px;  background-color: white ;height: 300px;width: 350px;background-blend-mode:color-burn;cursor: pointer;">
+                <h5 style="color: gray;text-align: center">Coins Collection</h5><br>
+                <img src="img/Coin.gif" height="150" width="150" >
+               </div></center></div>
+               <div class="col"><center>
+                <div class="card" style="  background-color: white ;height: 300px;width: 350px;background-blend-mode:color-burn;cursor: pointer;">
+                <h5 style="color: gray;text-align: center">Listening Songs</h5>
+                    <img src="img/songs_002.gif" height="200" width="250" ></div></center>
+        </div>
+    
+    </div><br>
+   
+    </div> <br>
+        <div class="footer">
+  <p>VIJAYA SELVAM C</p>
+</div>
+
+      
+    </body>
+</html>
